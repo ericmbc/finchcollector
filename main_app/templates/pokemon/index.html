@@ -5,6 +5,7 @@
 
 {% for item in pokemon %}
   <div class="card">
+    <a href="{% url 'detail' item.id %}">
     <div class="card-content">
       <span class="card-title">{{ item.name }}</span>
       <p>Breed: {{ item.breed }}</p>
@@ -15,6 +16,10 @@
         <p>Age: baby</p>
       {% endif %}
     </div>
+    </a>
+    <a href="/pokemon/{{ item.id }}/delete">Delete</a>
+    |
+    <a href="/pokemon/{{ item.id }}/edit">Edit</a>
   </div>
 {% endfor %}
 

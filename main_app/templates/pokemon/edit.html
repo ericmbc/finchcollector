@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+Please edit the pokemon:
+<form method="POST" action="/pokemon/{{ pokemon.id }}/update/">
+    {% csrf_token %}
+    <label for="pokemon_name">
+        please enter a name:
+    </label>
+    <input name="name" value="{{ pokemon.name }}" required id="pokemon_name">
+    <label for="pokemon_breed">
+        Breed:
+    </label>
+    <input name="breed" value="{{ pokemon.breed }}" id="pokemon_breed">
+    <label for="pokemon_description">
+        Description:
+    </label>
+    <input name="description" value="{{ pokemon.description }}" id="pokemon_description">
+    <label for="pokemon_age">
+        Age:
+    </label>
+    <input name="age"  value="{{ pokemon.age }}" id="pokemon_dage" type="number">
+    <button>Submit</button>
+</form>
+
+{% endblock %}
